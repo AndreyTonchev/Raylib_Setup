@@ -1,9 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(HelloWorld)
+project(MyProject)
 
-find_package(fmt CONFIG REQUIRED)
+set(CMAKE_BUILD_TYPE Debug)
 
-add_executable(HelloWorld main.cpp)
+set(CMAKE_TOOLCHAIN_FILE "C:/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
 
-target_link_libraries(HelloWorld PRIVATE fmt::fmt)
+find_package(raylib CONFIG REQUIRED) 
+
+add_executable(MyProject main.cpp)
+
+target_link_libraries(MyProject PRIVATE raylib)
